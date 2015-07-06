@@ -1,0 +1,37 @@
+  <%= form_for @detail do |f| %>
+    <% if @detail.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@detail.errors.count, "error") %> occured while processing:</h3>
+        <ul>
+        <% @detail.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>    
+
+     <div>
+      <%= f.label 'Today' %>
+      <%= f.text_field :today, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+       <div>
+      <%= f.label 'Actual' %>
+      <%= f.text_field :actual, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'Target' %>
+        <%= f.text_field :target, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+   
+    <div>
+      <%= f.label 'Notes'%>
+      <%= f.text_area :notes,:class => 'title simple custom' %>
+    </div>
+    
+     <div class="actions">
+            <%=f.submit "save" ,:class=>["btn","btn-primary"] %>
+          <%= link_to "Cancel", :back, :class=>["btn","btn-primary"] %>
+    </div>      
+    </br>
+<% end %>

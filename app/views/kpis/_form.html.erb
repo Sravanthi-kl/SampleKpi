@@ -1,0 +1,55 @@
+  <%= form_for @kpi do |f| %>
+    <% if @kpi.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@kpi.errors.count, "error") %> occured while processing:</h3>
+        <ul>
+        <% @kpi.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>    
+       <div>
+      <%= f.label 'Give your KPI a name' %>
+      <%= f.text_field :kpiname, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'When will this KPI be entered' %>
+        <%= f.select :kpifrequency,%w{Daily Weekly Monthly Yearly},:include_blank => true %> 
+    </div>
+   
+    <div>
+      <%= f.label 'What is your KPI format?'%>
+      <%= f.select :kpiformat,%w{1,234 1234.5 12min 12hrs}, :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'Which direction is best?'%>  
+      <%= f.select :kpidirection,["Up","Down","None"],:include_blank => true %>
+    </div>
+    
+    <div>
+      <%= f.label 'Does the KPI have a target'%>
+      <%= f.text_field :kpitarget, :class => 'title simple', :maxlength => 500, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'Which Category'%>
+      <%= f.select :kpicategory,["AECS" ],:include_blank => true%>
+    </div>
+
+     
+    
+     <div class="actions">
+            <%=f.submit "save" ,:class=>["btn","btn-primary"] %>
+          <%= link_to "Cancel", :back, :class=>["btn","btn-primary"] %>
+    </div>      
+    </br>
+
+  
+
+
+
+
+<% end %>

@@ -1,0 +1,37 @@
+ <div>
+  <h4>
+    <%= link_to  new_registerreport_path, :class => [:btn, :"btn-success"] do |l|%>
+      <i class="icon-plus-sign icon-white"></i>
+      Register 
+    <% end %>
+  </h4>
+
+<table class="table">
+  <thead>
+    
+    <th>User ID</th> 
+    <th>Kpi Name</th>         
+    <th>Start Date</th>
+    <th>End date</th>  
+  
+  </thead>
+
+<% @registerreports.each do |registerreport| %>
+  <tr>
+    
+    <td><%= registerreport.user_id %></td>               
+    <td><%= registerreport.kpiname %></td>
+    <td><%= registerreport.start_date%></td> 
+    <td><%= registerreport.end_date %></td>                   
+    <td><%= link_to 'Show', registerreport %>  <%= link_to 'Edit', edit_registerreport_path(registerreport) %>
+        <%= link_to 'Destroy',registerreport, method: :delete, data: {confirm: 'Are you sure?'} %>  
+</tr>
+<% end %>
+</table>
+<br />
+</div>
+
+
+
+
+

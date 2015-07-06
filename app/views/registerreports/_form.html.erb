@@ -1,0 +1,37 @@
+  <%= form_for @registerreport do |f| %>
+    <% if @registerreport.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@registerreport.errors.count, "error") %> occured while processing:</h3>
+        <ul>
+        <% @registerreport.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>    
+
+     <div>
+      <%= f.label 'User ID' %>
+      <%= f.text_field :user_id, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+       <div>
+      <%= f.label 'Kpi Name' %>
+      <%= f.text_field :kpiname, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'Start Date' %>
+        <%= f.text_field :start_date, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+   
+    <div>
+      <%= f.label 'End Date'%>
+      <%= f.text_field :end_date,:class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+     <div class="actions">
+            <%=f.submit "Register" ,:class=>["btn","btn-primary"] %>
+          
+    </div>      
+    </br>
+<% end %>
