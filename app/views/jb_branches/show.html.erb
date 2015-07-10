@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Branch Name:</b>
+  <%= @jb_branch.branchname %>
+</p>
+
+<p>
+  <b>Branch Type:</b>
+  <%= @jb_branch.branchtype %>
+</p>
+
+<p>
+  <b>Short Name:</b>
+  <%= @jb_branch.shortname %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @jb_branch.city %>
+</p>
+
+
+<p>
+  <b>Branch Address:</b>
+  <%= @jb_branch.branchaddress %>
+</p>
+
+<p>
+  <b>Contact Numbers</b>
+  <%= @jb_branch.contactnumbers %>
+</p>
+
+<p>
+  <b>Working Hours</b>
+  <%= @jb_branch.workinghours %>
+</p>
+
+<p>
+  <b>Map Link:</b>
+  <%= @jb_branch.maplink %>
+</p>
+
+<%= link_to 'Edit', edit_jb_branch_path %> |
+<%= link_to 'Back', jb_branches_path %>

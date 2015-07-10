@@ -9,6 +9,10 @@ SampleKpi::Application.routes.draw do
 resources :registerreports
 resources :kpis 
 resources :details
+resources :jb_branches
+resources :franchisemasters
+get 'frontpages/home'
+
 
 match '/get_target_percentage' => 'details#get_target_percentage'
 

@@ -1,0 +1,31 @@
+ <div>
+  <h4>
+    <%= link_to  new_jb_branch_path, :class => [:btn, :"btn-success"] do |l|%>
+      <i class="icon-plus-sign icon-white"></i>
+      Add New Branch
+    <% end %>
+  </h4>
+
+  <table class="table table-striped table-bordered">
+  <thead>
+    <th>Branch Name</th>          
+    <th>City</th>
+    <th>Contact Numbers</th>      
+  </thead>
+
+<% @jb_branches.each do |jb_branch| %>
+  <tr>
+    <td><%= jb_branch.branchname %></td>               
+    <td><%= jb_branch.city %></td>
+    <td><%= jb_branch.contactnumbers%></td>               
+    <td><%= link_to 'Show', jb_branch %>  <%= link_to 'Edit', edit_jb_branch_path(jb_branch) %>
+        <%= link_to 'Destroy',jb_branch, method: :delete, data: {confirm: 'Are you sure?'} %>  
+        <%= link_to 'AddOwner',new_franchisemaster_path,:class=>["btn","btn-default"] %> 
+        <%= link_to 'AddKPI',kpis_path,:class=>["btn","btn-default"] %>
+
+    </td>
+  </tr>
+<% end %>
+</table>
+<br />
+</div>

@@ -28,6 +28,31 @@ ActiveRecord::Schema.define(:version => 20150709173326) do
 
   add_index "details", ["kpi_id"], :name => "index_details_on_kpi_id"
 
+  create_table "franchisemasters", :force => true do |t|
+    t.string   "franchisetype"
+    t.string   "franchisename"
+    t.string   "franchiseename"
+    t.string   "owneremailid"
+    t.datetime "openingdate"
+    t.datetime "effectivefrom"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "owneraddress"
+  end
+
+  create_table "jb_branches", :force => true do |t|
+    t.string   "branchname"
+    t.string   "branchtype"
+    t.string   "shortname"
+    t.string   "city"
+    t.string   "branchaddress"
+    t.string   "contactnumbers"
+    t.string   "workinghours"
+    t.string   "maplink"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "kpis", :force => true do |t|
     t.string   "kpiname"
     t.string   "kpifrequency"
