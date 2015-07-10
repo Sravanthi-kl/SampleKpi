@@ -1,4 +1,3 @@
-
  <div>
   <h4>
     <%= link_to  new_kpi_path, :class => [:btn, :"btn-success"] do |l|%>
@@ -8,8 +7,7 @@
   </h4>
 
 <table class="table">
-  <thead>
-    
+  <thead>    
     <th>KPI Name</th> 
     <th>Format</th>         
     <th>Frequency</th>
@@ -19,20 +17,19 @@
     <th>Active</th>
   </thead>
 
-<% @kpis.each do |kpi| %>
-  <tr>
-    
+<% @kpis.each do |kpi| %>  
+  <tr>    
     <td><%= kpi.kpiname %></td>               
     <td><%= kpi.kpiformat %></td>
     <td><%= kpi.kpifrequency%></td> 
     <td><%= kpi.kpidirection %></td>       
     <td><%= kpi.kpitarget %></td>               
-    <td><%=link_to 'Add Data',new_detail_path,:class => [:btn, :"btn-success"]%></td>
+    <td><%=link_to 'Add Data',new_detail_path(:kpi_id => kpi.id),:class => [:btn, :"btn-success"]%></td>
     <td><%=link_to '[disable]' %></td>
-
     <td><%= link_to 'Show', kpi %>  <%= link_to 'Edit', edit_kpi_path(kpi) %>
         <%= link_to 'Destroy',kpi, method: :delete, data: {confirm: 'Are you sure?'} %>  
-</tr>
+    </td>    
+  </tr>
 <% end %>
 </table>
 <br />

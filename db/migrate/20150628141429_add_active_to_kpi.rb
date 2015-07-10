@@ -1,5 +1,5 @@
 class AddActiveToKpi < ActiveRecord::Migration
   def change
-    add_column :kpis, :Active, :Boolean,:default => true
+    add_column :kpis, :active, :boolean,:default => true
   end
 end

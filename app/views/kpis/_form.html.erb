@@ -9,14 +9,15 @@
         </ul>
       </div>
     <% end %>    
-       <div>
+    
+    <div>
       <%= f.label 'Give your KPI a name' %>
       <%= f.text_field :kpiname, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
     </div>
     
     <div>
       <%= f.label 'When will this KPI be entered' %>
-        <%= f.select :kpifrequency,%w{Daily Weekly Monthly Yearly},:include_blank => true %> 
+        <%= f.select :kpifrequency,%w{Daily Monthly Quarterly HalfYearly Yearly},:include_blank => true %> 
     </div>
    
     <div>
@@ -37,19 +38,12 @@
     <div>
       <%= f.label 'Which Category'%>
       <%= f.select :kpicategory,["AECS" ],:include_blank => true%>
-    </div>
-
-     
+    </div>     
     
-     <div class="actions">
-            <%=f.submit "save" ,:class=>["btn","btn-primary"] %>
-          <%= link_to "Cancel", :back, :class=>["btn","btn-primary"] %>
+    <div class="actions">
+      <%=f.submit "Save" ,:class=>["btn","btn-primary"] %>
+      <%= link_to "Cancel", :back, :class=>["btn","btn-primary"] %>
     </div>      
     </br>
-
-  
-
-
-
 
 <% end %>

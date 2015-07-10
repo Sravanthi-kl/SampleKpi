@@ -6,10 +6,12 @@ SampleKpi::Application.routes.draw do
 #match '/adddata' => 'kpis#adddata'
  #match '/editkpi' => 'kpis#editkpi'
 #match '/KpiStatus' => 'kpis#KpiStatus'
-
-resources :kpis
 resources :registerreports
+resources :kpis 
 resources :details
+
+match '/get_target_percentage' => 'details#get_target_percentage'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

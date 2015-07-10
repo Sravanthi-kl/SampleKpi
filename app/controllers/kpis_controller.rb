@@ -16,15 +16,15 @@ class KpisController < ApplicationController
     end
   end
  
- def show
+  def show
     @kpi = Kpi.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: kpis }
     end
- end
+  end
 
- def create
+  def create
     @kpi = Kpi.new(params[:kpi])
     respond_to do |format|
       if @kpi.save
@@ -37,7 +37,7 @@ class KpisController < ApplicationController
     end
   end
 
-def update
+  def update
 	 @kpi = Kpi.find(params[:id])
       respond_to do |format|
       if @kpi.update_attributes(params[:kpi])
@@ -48,11 +48,11 @@ def update
         format.json { render json: @kpi.errors, status: :unprocessable_entity }
       end
     end
-end
+  end
 
-def edit
+  def edit
 	 @kpi = Kpi.find(params[:id])
-end
+  end
 
 
  def destroy
@@ -65,16 +65,7 @@ end
     end
   end
 
-
-
-def adddata
-
-
-
-end
-
-
-
+  
 end   
 
 

@@ -10,18 +10,19 @@
       </div>
     <% end %>    
 
-     <div>
+    <div>
       <%= f.label 'User ID' %>
       <%= f.text_field :user_id, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
-    </div>
-       <div>
-      <%= f.label 'Kpi Name' %>
-      <%= f.text_field :kpiname, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>    
+
+    <div>
+      <%= f.label 'Report Name' %>
+      <%= f.select :kpiname, ["AECS" ],:include_blank => true%>
     </div>
     
     <div>
       <%= f.label 'Start Date' %>
-        <%= f.text_field :start_date, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+      <%= f.text_field :start_date, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
     </div>
    
     <div>
@@ -29,9 +30,10 @@
       <%= f.text_field :end_date,:class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
     </div>
     
-     <div class="actions">
-            <%=f.submit "Register" ,:class=>["btn","btn-primary"] %>
-          
+    <div class="actions">
+      <%=f.submit "Register" ,:class=>["btn","btn-primary"] %>          
     </div>      
+
     </br>
+
 <% end %>

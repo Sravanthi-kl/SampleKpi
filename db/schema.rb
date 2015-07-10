@@ -11,17 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150706044822) do
+ActiveRecord::Schema.define(:version => 20150709173326) do
 
   create_table "details", :force => true do |t|
-    t.date     "today"
-    t.integer  "actual"
-    t.integer  "target"
-    t.decimal  "target_percentage"
+    t.string   "today"
+    t.integer  "actual",            :precision => 38, :scale => 0
+    t.integer  "target",            :precision => 38, :scale => 0
+    t.integer  "target_percentage", :precision => 38, :scale => 0
     t.text     "notes"
-    t.integer  "kpi_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.integer  "kpi_id",            :precision => 38, :scale => 0
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.string   "kpiname"
+    t.string   "kpicategory"
   end
 
   add_index "details", ["kpi_id"], :name => "index_details_on_kpi_id"
@@ -31,27 +33,18 @@ ActiveRecord::Schema.define(:version => 20150706044822) do
     t.string   "kpifrequency"
     t.string   "kpiformat"
     t.string   "kpidirection"
-    t.integer  "kpitarget"
+    t.integer  "kpitarget",    :precision => 38, :scale => 0
     t.string   "kpicategory"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.boolean  "Active",       :default => true
-  end
-
-  create_table "register_reports", :force => true do |t|
-    t.string   "user_id"
-    t.string   "kpiname"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
+    t.boolean  "active",       :precision => 1,  :scale => 0, :default => true
   end
 
   create_table "registerreports", :force => true do |t|
     t.string   "user_id"
     t.string   "kpiname"
-    t.date     "start_date"
-    t.date     "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -6,6 +6,8 @@ gem "less-rails",'2.3.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'
+gem 'activerecord-oracle_enhanced-adapter', '~> 1.4.0'
+gem 'ruby-oci8','2.1.7'
 group :development, :test do
 	gem 'rspec-rails', '~> 3.0'
 	gem 'factory_girl_rails'
@@ -22,6 +24,10 @@ group :assets do
  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :assets do
+    gem 'jquery-ui-rails'
 end
 
 gem 'jquery-rails'

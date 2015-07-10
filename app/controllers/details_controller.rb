@@ -1,7 +1,6 @@
 class DetailsController < ApplicationController
 
-
- def index
+  def index
     @details = Detail.all
     respond_to do |format|
       format.html # index.html.erb
@@ -11,22 +10,24 @@ class DetailsController < ApplicationController
 
   def new
    @detail = Detail.new
+   @kpi = Kpi.find(params[:kpi_id])
+      
     respond_to do |format|
     format.html # new.html.erb
-    format.json { render json: @detail  }
+    format.json { render :text => @detail.to_json }
     end
   end
  
- def show
+  def show
     @detail = Detail.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: details }
     end
- end
+  end
 
- def create
-    @detail = Detail.new(params[:detail])
+  def create
+    @detail = Detail.new(params[:detail])        
     respond_to do |format|
       if @detail.save
         format.html { redirect_to action:"index", notice: 'Successfully added.' }
@@ -38,7 +39,7 @@ class DetailsController < ApplicationController
     end
   end
 
-def update
+  def update
 	 @detail = Detail.find(params[:id])
       respond_to do |format|
       if @detail.update_attributes(params[:detail])
@@ -49,20 +50,28 @@ def update
         format.json { render json: @detail.errors, status: :unprocessable_entity }
       end
     end
-end
+  end
 
-def edit
-	 @detail = Detail.find(params[:id])
-end
+  def edit
+	 @detail = Detail.find(params[:kpi_id])
+  end
 
 
- def destroy
+  def destroy
     @detail = Detail.find(params[:id])
     @detail.destroy
-
     respond_to do |format|
       format.html { redirect_to @detail }
       format.json { head :no_content }
     end
   end	
+
+  def get_target_percentage
+    actual_value = params[:actual_value]
+    target_value = params[:target_value]
+    percet =( (actual_value).to_f / (target_value).to_f * 100)-100
+    render :text => percet
+  end
+  
 end
+  
