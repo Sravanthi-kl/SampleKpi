@@ -2,12 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.16'
 gem "less-rails",'2.3.3'
+gem 'i18n','0.6.4'
+gem 'execjs','2.2.1'
+gem 'ruby-oci8','2.1.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'
 gem 'activerecord-oracle_enhanced-adapter', '~> 1.4.0'
-gem 'ruby-oci8','2.1.7'
 group :development, :test do
 	gem 'capistrano',"2.14.2"
 	gem 'capistrano-ext'
