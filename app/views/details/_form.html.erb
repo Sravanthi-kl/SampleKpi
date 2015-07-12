@@ -1,4 +1,4 @@
-  <%= form_for @detail do |f| %>
+<%= form_for @detail do |f| %>
     <% if @detail.errors.any? %>
       <div id="error_explanation">
         <h3><%= pluralize(@detail.errors.count, "error") %> occured while processing:</h3>
@@ -6,19 +6,21 @@
         <% @detail.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-        </ul>Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id
+        </ul>
       </div>
-    <% end %>   
+    <% end %>    
+   <br />  
 
     <div>
     <%= f.label 'ID' %>
-    <%= f.text_field :kpi_id, :value => @kpi.id%>
+    <%= f.hidden_field :kpi_id, :value => @kpi.id%>
     </div>
 
     <div>
-    <%= f.label 'KPI Name' %>
-    <%= f.text_field :kpiname, :value => @kpi.kpiname%>
+    <%= f.label 'KPI Name' %></br>
+    <%= @kpi.kpiname%>
     </div>
+    
 
     <div>
     <%= f.label 'Target' %>
@@ -27,7 +29,7 @@
     
     <div>
     <%= f.label 'Which Category'%>
-    <%= f.text_field :kpicategory,:value => @kpi.kpicategory%>
+    <%= @kpi.kpicategory%>
     </div>
     
     <div>

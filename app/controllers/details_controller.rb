@@ -5,7 +5,7 @@ class DetailsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render json: @details }
-	  end
+    end
   end  
 
   def new
@@ -27,7 +27,8 @@ class DetailsController < ApplicationController
   end
 
   def create
-    @detail = Detail.new(params[:detail])        
+    @detail = Detail.new(params[:detail]) 
+    @kpi = Kpi.find(@detail.kpi_id)       
     respond_to do |format|
       if @detail.save
         format.html { redirect_to action:"index", notice: 'Successfully added.' }
@@ -40,7 +41,7 @@ class DetailsController < ApplicationController
   end
 
   def update
-	 @detail = Detail.find(params[:id])
+   @detail = Detail.find(params[:id])
       respond_to do |format|
       if @detail.update_attributes(params[:detail])
         format.html { redirect_to @detail, notice: 'successfully updated.' }
@@ -53,7 +54,10 @@ class DetailsController < ApplicationController
   end
 
   def edit
-	 @detail = Detail.find(params[:kpi_id])
+  @detail = Detail.find(params[:id])
+  p @detail.kpi_id
+  @kpi = Kpi.find(@detail.kpi_id)
+  p @kpi
   end
 
 
@@ -64,7 +68,7 @@ class DetailsController < ApplicationController
       format.html { redirect_to @detail }
       format.json { head :no_content }
     end
-  end	
+  end 
 
   def get_target_percentage
     actual_value = params[:actual_value]
@@ -74,4 +78,3 @@ class DetailsController < ApplicationController
   end
   
 end
-  

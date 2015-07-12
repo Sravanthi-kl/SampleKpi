@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150709173326) do
+ActiveRecord::Schema.define(:version => 20150710114315) do
 
   create_table "details", :force => true do |t|
     t.string   "today"
@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(:version => 20150709173326) do
     t.integer  "kpi_id",            :precision => 38, :scale => 0
     t.datetime "created_at",                                       :null => false
     t.datetime "updated_at",                                       :null => false
-    t.string   "kpiname"
-    t.string   "kpicategory"
   end
 
   add_index "details", ["kpi_id"], :name => "index_details_on_kpi_id"

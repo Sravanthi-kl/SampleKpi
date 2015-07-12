@@ -3,5 +3,6 @@ class Kpi < ActiveRecord::Base
 
   validates :kpicategory,:kpidirection,:kpiformat,:kpifrequency,:kpiname,:kpitarget,:presence => true
   has_many :details
+  
 
 end
