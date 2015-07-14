@@ -1,71 +1,48 @@
-<%= form_for @detail do |f| %>
-    <% if @detail.errors.any? %>
-      <div id="error_explanation">
-        <h3><%= pluralize(@detail.errors.count, "error") %> occured while processing:</h3>
-        <ul>
-        <% @detail.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>    
-   <br />  
+<div class="container">
+  <table >    
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Kpi Name</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Target</th>
+        <th>Actual</th>
+        <th>Target Percentage</th>
+        <th>Notes</th>        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+      <%= form_for @detail do |f| %>     
+         <td><%= f.hidden_field :kpi_id, :value => @kpi.id%>
+         <td><%= @kpi.kpiname %></td>
+         <td><%= @kpi.kpicategory %></td>
+         <td>
+         <% if @kpi.kpifrequency == 'Daily'%>
+            <%= f.text_field :today, :class => 'title simple custom date_picker_input'%>
+         <% elsif @kpi.kpifrequency == 'Monthly'%>
+            <%= f.text_field :today, :class => 'title simple custom month_picker_input'%>
+         <% elsif @kpi.kpifrequency == 'Quarterly'%>
+            <%= f.text_field :today, :class => 'title simple custom quarter_picker_input'%> 
+         <% elsif @kpi.kpifrequency == 'HalfYearly'%>
+            <%= f.text_field :today, :class => 'title simple custom halfyear_picker_input'%>
+         <% else%>  
+            <%= f.text_field :today, :class => 'title simple custom year_picker_input'%>
+         <%end%>
+         </td>
 
-    <div>
-    <%= f.label 'ID' %>
-    <%= f.hidden_field :kpi_id, :value => @kpi.id%>
-    </div>
-
-    <div>
-    <%= f.label 'KPI Name' %></br>
-    <%= @kpi.kpiname%>
-    </div>
-    
-
-    <div>
-    <%= f.label 'Target' %>
-    <%= f.text_field :target, :value => @kpi.kpitarget%>
-    </div>
-    
-    <div>
-    <%= f.label 'Which Category'%>
-    <%= @kpi.kpicategory%>
-    </div>
-    
-    <div>
-      <%= f.label 'Date' %>
-      <% if @kpi.kpifrequency == 'Daily'%>
-        <%= f.text_field :today, :class => 'title simple custom date_picker_input', :maxlength => 50, :style => 'width:633px'%>
-      <% elsif @kpi.kpifrequency == 'Monthly'%>
-        <%= f.text_field :today, :class => 'title simple custom month_picker_input', :maxlength => 50, :style => 'width:633px'%>
-      <% elsif @kpi.kpifrequency == 'Quarterly'%>
-        <%= f.text_field :today, :class => 'title simple custom quarter_picker_input', :maxlength => 50, :style => 'width:633px'%>       
-      <% elsif @kpi.kpifrequency == 'HalfYearly'%>
-        <%= f.text_field :today, :class => 'title simple custom halfyear_picker_input', :maxlength => 50, :style => 'width:633px'%>
-      <% else%>  
-        <%= f.text_field :today, :class => 'title simple custom year_picker_input', :maxlength => 50, :style => 'width:633px'%>
+         <td><%= f.text_field :target ,:value => @kpi.kpitarget %></td>
+         <td><%= f.text_field :actual %></td>
+         <td><%= f.text_field :target_percentage %></td>
+         <td><%= f.text_field :notes %></td>                  
+         <td>
+          <div class="actions">
+          <%= f.submit "save" ,:class=>["btn","btn-primary"] %>          
+          </div>
+        </td>    
       <%end%>
-    </div>
-
-    <div>
-      <%= f.label 'Actual' %>
-      <%= f.text_field :actual, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
-    </div>
-    
-    <div>
-      <%= f.label 'Targetpercentage' %>
-      <%= f.text_field :target_percentage, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
-    </div>
-    
-    <div>
-      <%= f.label 'Notes'%>
-      <%= f.text_area :notes,:class => 'title simple custom' %>
-    </div>
-    
-    <div class="actions">
-      <%=f.submit "save" ,:class=>["btn","btn-primary"] %>
-      <%= link_to "Cancel", :back, :class=>["btn","btn-primary"] %>
-    </div>      
-
-    </br>
-<% end %>
+      </tr>
+     </tbody>
+ </table>

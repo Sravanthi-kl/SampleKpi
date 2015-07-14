@@ -9,7 +9,7 @@ class DetailsController < ApplicationController
   end  
 
   def new
-   @detail = Detail.new
+   @detail = Detail.new   
    @kpi = Kpi.find(params[:kpi_id])
       
     respond_to do |format|

@@ -1,0 +1,29 @@
+ <div>
+  <h4>
+    <%= link_to  new_kpi_path, :class => [:btn, :"btn-success"] do |l|%>
+      <i class="icon-plus-sign icon-white"></i>
+      Add KPI
+    <% end %>
+  </h4>
+
+<table class="table">
+  <thead>    
+    <th>KPI Name</th> 
+    <th>KPI Category</th>         
+    
+  </thead>
+
+<% @kpis.each do |kpi| %>  
+  <tr>    
+    <td><%= kpi.kpiname %></td>   
+    <td><%= kpi.kpicategory %></td>       
+  </tr>
+<% end %>
+</table>
+<br />
+</div>
+
+
+
+
+

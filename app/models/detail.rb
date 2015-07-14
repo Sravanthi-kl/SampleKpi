@@ -3,6 +3,8 @@ class Detail < ActiveRecord::Base
   attr_accessible :actual, :kpi_id, :notes, :target, :target_percentage, :today
 
    validates :actual, :kpi_id, :notes, :target, :target_percentage, :today,:presence => true
+   
+
 
 
 end
