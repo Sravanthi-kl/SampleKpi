@@ -1,4 +1,4 @@
- <div>
+<div>
   <h4>
     <%= link_to  new_kpi_path, :class => [:btn, :"btn-success"] do |l|%>
       <i class="icon-plus-sign icon-white"></i>
@@ -28,7 +28,7 @@
     <td><%=link_to '[disable]' %></td>
     <td><%= link_to 'Show', kpi %>  <%= link_to 'Edit', edit_kpi_path(kpi) %>
         <%= link_to 'Destroy',kpi, method: :delete, data: {confirm: 'Are you sure?'} %>  
-    </td>    
+    </td>   
   </tr>
 <% end %>
 </table>

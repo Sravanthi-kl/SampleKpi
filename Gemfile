@@ -5,6 +5,8 @@ gem "less-rails",'2.3.3'
 gem 'i18n','0.6.4'
 gem 'execjs','2.2.1'
 gem 'ruby-oci8','2.1.7'
+gem 'thin'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -33,7 +35,7 @@ end
 group :assets do
     gem 'jquery-ui-rails'
 end
-
+gem 'highcharts-rails', '~> 3.0.0'
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails", '2.2.7'
 group :test do 

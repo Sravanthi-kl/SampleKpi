@@ -1,0 +1,28 @@
+<%= form_tag ("/jb_branches/linkkpi ") do %>
+<%= hidden_field_tag :jbbranch_id, @jb_branch.id %> 
+<%= label_tag("Business Name:")%>
+<%= @jb_branch.branchname %>
+	<table class="table">
+		<thead>    
+      		<th>Select </th>
+      		<th>KPI Name</th>              
+      		<th>Frequency</th>
+      		<th>Category</th>
+    	</thead>
+        <% if !@kpi.blank? %>
+		    <% @kpi.each do |kpi| %>	  	
+	  		 	<tr>	
+	  	  			<td><%= check_box_tag "kpi_ids[]", kpi.id,@mapped_kpi_ids.include?(kpi.id)%></td>
+	  	  			<td><%= kpi.kpiname %></td>             
+	      			<td><%= kpi.kpifrequency %></td>
+	      			<td><%= kpi.kpicategory %></td> 
+	    		</tr>	    
+	    	<% end %>    
+		<% end %>
+	</table> 
+
+<div class="actions">
+    <%= submit_tag %>
+</div>
+
+<% end %>

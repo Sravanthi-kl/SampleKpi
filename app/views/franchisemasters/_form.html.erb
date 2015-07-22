@@ -1,17 +1,17 @@
 <%= form_for @franchisemaster do |f| %>
-    <% if @franchisemaster.errors.any? %>
-      <div id="error_explanation">
-        <h3><%= pluralize(@franchisemaster.errors.count, "error") %> occured while processing:</h3>
-        <ul>
-        <% @franchisemaster.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>    
-   <br />
+  <% if @franchisemaster.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@franchisemaster.errors.count, "error") %> occured while processing:</h3>
+      <ul>
+      <% @franchisemaster.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>    
+  <br />
     
-    <h4>Franchise Details</h4>
+  <h4>Franchise Details</h4>
     
     <div>
       <%= f.label 'Franchise Type*' %>
@@ -54,5 +54,5 @@
             <%=f.submit "Submit" ,:class=>["btn","btn-primary"] %>
     </div>
 
-    <% end %>
+<% end %>
     

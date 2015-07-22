@@ -7,12 +7,22 @@ SampleKpi::Application.routes.draw do
  #match '/editkpi' => 'kpis#editkpi'
 #match '/KpiStatus' => 'kpis#KpiStatus'
 resources :registerreports
-resources :kpis 
-resources :details
-resources :jb_branches
+resources :details do
+  collection do
+    get 'addlinkkpi'
+  end
+end  
+resources :kpis
 resources :franchisemasters
-get 'frontpages/home'
+resources :businesskpis
+get 'jb_branches/home'
 
+resources :jb_branches do
+    collection do
+      post 'linkkpi'
+      get 'newlinkkpi'      
+    end
+end
 
 match '/get_target_percentage' => 'details#get_target_percentage'
 
@@ -65,6 +75,7 @@ match '/get_target_percentage' => 'details#get_target_percentage'
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+  root :to => 'jb_branches#home'
   
 
   # See how all your routes lay out with "rake routes"

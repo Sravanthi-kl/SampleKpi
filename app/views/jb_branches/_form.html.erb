@@ -1,17 +1,17 @@
 <%= form_for @jb_branch do |f| %>
-    <% if @jb_branch.errors.any? %>
-      <div id="error_explanation">
-        <h3><%= pluralize(@jb_branch.errors.count, "error") %> occured while processing:</h3>
+  <% if @jb_branch.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@jb_branch.errors.count, "error") %> occured while processing:</h3>
         <ul>
-        <% @jb_branch.errors.full_messages.each do |msg| %>
+          <% @jb_branch.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
-        <% end %>
+          <% end %>
         </ul>
-      </div>
-    <% end %>    
-   <br />
+    </div>
+  <% end %>    
+  <br />
    
-    <h4>Branch Details</h4>
+  <h4>Branch Details</h4>
     <div>
       <%= f.label 'Branch Name*' %>
       <%= f.text_field :branchname, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
@@ -19,7 +19,7 @@
     
     <div>
       <%= f.label 'Branch Type*' %>
-        <%= f.select :branchtype,%w{Parentbranch Subsidary},:include_blank => true %> 
+      <%= f.select :branchtype,%w{Parentbranch Subsidary},:include_blank => true %> 
     </div>
    
     <div>
@@ -49,12 +49,12 @@
     </div>
     
     <div>
-        <%= f.label :Map_link,'Map Link' %>
-        <%= f.text_field :maplink, :class => 'title simple', :maxlength => 200, :style => 'width:633px'%>
+      <%= f.label :Map_link,'Map Link' %>
+      <%= f.text_field :maplink, :class => 'title simple', :maxlength => 200, :style => 'width:633px'%>
     </div>
               
     <div class="actions">
-            <%=f.submit "Submit" ,:class=>["btn","btn-primary"] %>
+      <%=f.submit "Submit" ,:class=>["btn","btn-primary"] %>
     </div>
 
     <% end %>
