@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
+ruby "1.9.3"
 gem 'rails', '3.2.16'
 gem "less-rails",'2.3.3'
 gem 'i18n','0.6.4'
 gem 'execjs','2.2.1'
 gem 'ruby-oci8','2.1.7'
+
 
 
 
