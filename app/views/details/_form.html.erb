@@ -15,9 +15,9 @@
   </thead>
 
   <% @details.each do |detail| %>
-    <tr>                    
-      <td><%= @kpi.kpiname %></td>
-      <td><%= @kpi.kpicategory %></td>
+    <tr>    
+      <td><%= @business_kpi_id.kpiname %></td>
+      <td><%= @business_kpi_id.kpicategory %></td>
       <td><%= detail.day%></td> 
       <td><%= detail.target %></td>
       <td><%= detail.actual %></td>
@@ -93,6 +93,7 @@
   </tbody>
   </table>
 </div>
+
 
 
 <div id="Target_Actual" style="width:100%;height:200px;"></div>

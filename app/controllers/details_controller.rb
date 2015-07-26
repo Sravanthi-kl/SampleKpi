@@ -10,14 +10,16 @@ class DetailsController < ApplicationController
 
   def new
     @details = Detail.all 
-    @detail = Detail.new      
-    business_kpi_id=Businesskpi.find(params[:mapped_kpi_id])  
-    @kpi = Kpi.find(business_kpi_id.kpi_id)
-    @jb_branch = JbBranch.find(business_kpi_id.jbbranch_id)   
+    @detail = Detail.new   
+    @array = @details.map { |p| [p.day, p.target] }   
+    @business_kpi_id=Businesskpi.find(params[:mapped_kpi_id])  
+    @kpi = Kpi.find(@business_kpi_id.kpi_id)
+    @jb_branch = JbBranch.find(@business_kpi_id.jbbranch_id)   
    
       respond_to do |format|
         format.html # new.html.erb
         format.json { render :text => @detail.to_json }
+
       end
   end
  
@@ -81,17 +83,10 @@ class DetailsController < ApplicationController
 
 
   def addlinkkpi
+    @detail=Detail.new
     @businesskpi = Businesskpi.new
     @jb_branch = JbBranch.find(params[:jbbranch_id]) 
-    @mapped_kpi_ids = Businesskpi.where(:jbbranch_id => @jb_branch.id)           
-  end 
+    @mapped_kpi_ids = Businesskpi.where(:jbbranch_id => @jb_branch.id)
 
-  def show_graph
-  @detail = Detail.find(params[:id])
-  # or find by some of the name of time params
-
-  respond_to do |f|
-    format.json { render :json => @detail}
-  end
-end
+  end   
 end

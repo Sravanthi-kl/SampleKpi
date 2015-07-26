@@ -6,6 +6,8 @@ gem "less-rails",'2.3.3'
 gem 'i18n','0.6.4'
 gem 'execjs','2.2.1'
 gem 'ruby-oci8','2.1.7'
+gem 'thin'
+
 
 
 

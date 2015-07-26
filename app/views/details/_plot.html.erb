@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+        var data=[];
+        var Header= ['Target', 'Date', { role: 'style' }];
+        alert("InGraph file")
+        alert(@array)
+        data.push(Header);
+         for (var i = 0; i < details.length; i++) {
+      var temp=[];
+      temp.push(details[i].target);
+      temp.push(details[i].day);
+
+      data.push(temp);
+  }
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var chartdata = google.visualization.arrayToDataTable(data);
+
+        var options = {
+          title: 'Performance Graph',
+          vAxis: {title: '% Employees',  titleTextStyle: {color: 'black'}},
+          hAxis: {title: 'Hold Period in Days',  titleTextStyle: {color: 'black'}}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('plot_div'));
+        chart.draw(chartdata, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="plot_div" style="width: 900px; height: 400px;"></div>
+  </body>
+</html>

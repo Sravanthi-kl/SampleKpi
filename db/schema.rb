@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20150721170919) do
   add_index "businesskpis", ["kpi_id"], :name => "index_businesskpis_on_kpi_id"
 
   create_table "details", :force => true do |t|
-    t.string   "day"
+    t.datetime "day"
     t.integer  "actual",            :precision => 38, :scale => 0
     t.integer  "target",            :precision => 38, :scale => 0
     t.integer  "target_percentage", :precision => 38, :scale => 0
