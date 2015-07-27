@@ -1,36 +1,27 @@
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
     <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-        var data=[];
-        var Header= ['Target', 'Date', { role: 'style' }];
-        alert("InGraph file")
-        alert(@array)
-        data.push(Header);
-         for (var i = 0; i < details.length; i++) {
-      var temp=[];
-      temp.push(details[i].target);
-      temp.push(details[i].day);
+      google.setOnLoadCallback(drawVisualization);
 
-      data.push(temp);
-  }
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var chartdata = google.visualization.arrayToDataTable(data);
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        console.log(<% @details%>);
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Actual', 'Target'],
+           <% @details.each do |bic| %>
+          ['<%= bic.created_at.to_date.to_s %>',<%= bic.actual rescue 0 %>,<%= bic.target rescue 0%>],
+          <% end %>
+        ]);
 
         var options = {
-          title: 'Performance Graph',
-          vAxis: {title: '% Employees',  titleTextStyle: {color: 'black'}},
-          hAxis: {title: 'Hold Period in Days',  titleTextStyle: {color: 'black'}}
+          title : 'Monthly Coffee Production by Country',
+          vAxis: {title: "Date"},
+          hAxis: {title: "Actual"},
+          seriesType: "bars",
+            series: {1:{type: "line"}}
         };
 
-        var chart = new google.visualization.ColumnChart(document.getElementById('plot_div'));
-        chart.draw(chartdata, options);
+        var chart = new google.visualization.ComboChart(document.getElementById('rentals_trend_div'));
+        chart.draw(data, options);
       }
-    </script>
-  </head>
-  <body>
-    <div id="plot_div" style="width: 900px; height: 400px;"></div>
-  </body>
-</html>
+    </script> 
+<div id="rentals_trend_div" style="width: 900px; height: 500px;"></div>

@@ -4,7 +4,7 @@
  </h4>
 
 <table class="table">
-  <thead>        
+  <tr>        
     <th>Kpi Name</th>
     <th>Category</th>
     <th>Day</th>
@@ -12,12 +12,12 @@
     <th>Actual</th>
     <th>Target Percentage</th>
     <th>Notes</th>              
-  </thead>
+  </tr>
 
   <% @details.each do |detail| %>
     <tr>    
-      <td><%= @business_kpi_id.kpiname %></td>
-      <td><%= @business_kpi_id.kpicategory %></td>
+      <td><%= detail.kpi.kpiname %></td>
+      <td><%= detail.kpi.kpicategory %></td>
       <td><%= detail.day%></td> 
       <td><%= detail.target %></td>
       <td><%= detail.actual %></td>
@@ -30,8 +30,8 @@
 </div>
 
 <div class="container">
-  <table >    
-    <thead>
+  <table border="1">    
+
       <tr>
         <th>Kpi </br>Name</th>
         <th>Category</th>
@@ -41,9 +41,8 @@
         <th>Target </br>Percentage</th>
         <th>Notes</th>        
       </tr>
-    </thead>
   
-  <tbody>     
+
     <tr>
       <%= form_for @detail do |f| %>   
         <% if @detail.errors.any? %>
@@ -58,9 +57,9 @@
         <% end %>
             
                 
-        <td><%= f.hidden_field :kpi_id,:value => @kpi.id%><td>
-        <td><%= f.hidden_field :jbbranch_id,:value => @jb_branch.id%><td>
-        <td><%= f.hidden_field :branchname,:value => @jb_branch.branchname%><td>
+        <%= f.hidden_field :kpi_id,:value => @kpi.id%>
+        <%= f.hidden_field :jbbranch_id,:value => @jb_branch.id%>
+        <%= f.hidden_field :branchname,:value => @jb_branch.branchname%>
         <td><%= @kpi.kpiname %></td>
         <td><%= @kpi.kpicategory %></td>
         <td>
@@ -90,10 +89,9 @@
         </td>    
       <%end%>
     </tr>
-  </tbody>
+
   </table>
 </div>
 
 
-
-<div id="Target_Actual" style="width:100%;height:200px;"></div>
+<%= render "plot" %>

@@ -39,7 +39,7 @@ end
 group :assets do
     gem 'jquery-ui-rails'
 end
-gem 'highcharts-rails', '~> 3.0.0'
+
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails", '2.2.7'
 group :test do 

@@ -9,12 +9,10 @@ class DetailsController < ApplicationController
   end  
 
   def new
-    @details = Detail.all 
+    @jb_branch = JbBranch.find(params[:branch_id])   
+    @kpi = Kpi.find(params[:kpi_id])
+    @details = Detail.where("kpi_id = ? and jbbranch_id = ?",@kpi.id,@jb_branch.id)
     @detail = Detail.new   
-    @array = @details.map { |p| [p.day, p.target] }   
-    @business_kpi_id=Businesskpi.find(params[:mapped_kpi_id])  
-    @kpi = Kpi.find(@business_kpi_id.kpi_id)
-    @jb_branch = JbBranch.find(@business_kpi_id.jbbranch_id)   
    
       respond_to do |format|
         format.html # new.html.erb

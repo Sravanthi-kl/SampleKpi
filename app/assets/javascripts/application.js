@@ -15,8 +15,6 @@
 //= require jquery-ui
 //= require twitter/bootstrap
 //= require_tree .
-//= require highcharts
-//= require highcharts/highcharts-more
 jQuery(document).ready(function(){
 
 $('#detail_actual').on('blur',function(){
@@ -119,75 +117,6 @@ $('#detail_actual').on('blur',function(){
 	       });    
 	   });
 
-	    $('#Target_Actual').highcharts({
-        chart: {
-            zoomType: 'xy'
-        },
-        title: {
-            text: 'Performance Graph'
-        },
-        
-        xAxis: [{
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            crosshair: true
-        }],
-        yAxis: [{ // Primary yAxis
-            labels: {
-                format: '{value}',
-                style: {
-                    color: Highcharts.getOptions().colors[1]
-                }
-            },
-            title: {
-                text: 'Target',
-                style: {
-                    color: Highcharts.getOptions().colors[1]
-                }
-            }
-        }, { // Secondary yAxis
-            title: {
-                text: 'Actual',
-                style: {
-                    color: Highcharts.getOptions().colors[0]
-                }
-            },
-            labels: {
-                format: '{value}',
-                style: {
-                    color: Highcharts.getOptions().colors[0]
-                }
-            },
-            opposite: true
-        }],
-        tooltip: {
-            shared: true
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'left',
-            x: 120,
-            verticalAlign: 'top',
-            y: 100,
-            floating: true,
-            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
-        },
-        series: [{
-            name: 'Target',
-            type: 'column',
-            yAxis: 1,
-            data: [500,500,500,500,500],
-            
-
-        }, {
-            name: 'Actual',
-            type: 'spline',
-            data: [350,460,450,455,490],
-           
-        }]
-        
-    });
-
-
+	   
 });
 

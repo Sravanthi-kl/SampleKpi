@@ -83,8 +83,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    highcharts-rails (3.0.10)
-      railties (>= 3.1)
     highline (1.7.2)
     hike (1.2.3)
     i18n (0.6.4)
@@ -233,7 +231,6 @@ DEPENDENCIES
   factory_girl_rails
   faker
   guard-rspec
-  highcharts-rails (~> 3.0.0)
   i18n (= 0.6.4)
   jquery-rails
   jquery-ui-rails
