@@ -52,7 +52,7 @@ end
 
 
 def edit
-	 @jb_branch = JbBranch.find(params[:id])
+	@jb_branch = JbBranch.find(params[:id])
 end
 
 
@@ -77,9 +77,9 @@ def newlinkkpi
 end  
 
 def linkkpi
-  @businesskpi = Businesskpi.new 
+  #
   @jb_branch = JbBranch.find(params[:jbbranch_id])
-  @mapped_kpi_ids = Businesskpi.where(:jbbranch_id => @jb_branch.id).pluck('kpi_id')
+  @mapped_kpi_ids = Businesskpi.where(:jbbranch_id => @jb_branch.id).pluck('kpi_id')  
   delete_kpi_ids = @mapped_kpi_ids - params[:kpi_ids]
   Businesskpi.delete(delete_kpi_ids)
   add_kpi_ids= params[:kpi_ids] - @mapped_kpi_ids
@@ -94,8 +94,7 @@ def linkkpi
       bk.kpifrequency = kpi.kpifrequency
       bk.kpicategory = kpi.kpicategory
       bk.save
-  end 
-  
+  end   
   respond_to do |format|
     format.html # index.html.erb
     format.xml  { render json: @businesskpi }

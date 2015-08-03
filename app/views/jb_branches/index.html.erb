@@ -23,6 +23,7 @@
           <%= link_to 'AddOwner',new_franchisemaster_path,:class=>["btn","btn-default"] %> 
           <%= link_to 'AddKPIData',addlinkkpi_details_path(:jbbranch_id => jb_branch.id),:class=>["btn","btn-default"] %>
           <%=link_to 'LinkKpi',newlinkkpi_jb_branches_path(:jbbranch_id => jb_branch.id),:class => [:btn, :"btn-success"]%>
+           <%=link_to 'Feed',feed_details_path(:jbbranch_id => jb_branch.id),:class => [:btn, :"btn-success"]%>
         </td>    
       </tr>
     <% end %>

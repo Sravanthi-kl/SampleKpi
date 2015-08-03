@@ -1,10 +1,7 @@
-<h4>Branch Kpi Details</h1>
-
-<%= render 'frequencytab' %>
-
-<%= link_to 'Monthly Kpis for the Branch',monthly_details_path(:jbbranch_id => @jb_branch.id),:class=> [:btn, :"btn-success"]%>
+<h4>Branch Kpi Details </h1>
 
 <table class="table">
+	
   <thead> 
         <th>Branch Name</th>
         <th>Kpi Category</th>
@@ -14,7 +11,7 @@
 
 <% @mapped_kpi_ids.each do |mapped_kpi_id| %>
 	<tr>	 
-		<% if mapped_kpi_id.kpifrequency=="DAILY" %> 
+		<% if mapped_kpi_id.kpifrequency=="MONTHLY" %> 
 	    <td><%= mapped_kpi_id.branchname%></td>
 	    <td><%= mapped_kpi_id.kpicategory%></td>
 	    <td><%= mapped_kpi_id.kpiname%></td>	  	  
@@ -22,4 +19,7 @@
 	    <td><%= link_to 'Add Data',new_detail_path(:kpi_id => mapped_kpi_id.kpi_id,:branch_id => @jb_branch.id),:class=> [:btn, :"btn-success"]%></td>    
 	    <% end %>
 	</tr>
-<% end %>
+<% end %> 
+
+
+		

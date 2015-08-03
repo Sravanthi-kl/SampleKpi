@@ -10,6 +10,9 @@ resources :registerreports
 resources :details do
   collection do
     get 'addlinkkpi'
+    get 'monthly'
+    get 'feed'
+    get 'showgraph'
   end
 end  
 resources :kpis
@@ -20,7 +23,9 @@ get 'jb_branches/home'
 resources :jb_branches do
     collection do
       post 'linkkpi'
-      get 'newlinkkpi'      
+      get 'newlinkkpi'  
+
+       
     end
 end
 

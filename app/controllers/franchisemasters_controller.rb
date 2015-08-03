@@ -17,23 +17,23 @@ class FranchisemastersController < ApplicationController
 
   def show
     @franchisemaster = Franchisemaster.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @franchisemaster }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @franchisemaster }
     end
   end
 
   def create
     @franchisemaster = Franchisemaster.new(params[:franchisemaster])
-    respond_to do |format|
-      if @franchisemaster.save
-        format.html { redirect_to @franchisemaster, notice: 'Franchise successfully added.' }
-        format.json { render json: @franchisemaster, status: :created, location: @franchisemaster }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @franchisemaster.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @franchisemaster.save
+          format.html { redirect_to @franchisemaster, notice: 'Franchise successfully added.' }
+          format.json { render json: @franchisemaster, status: :created, location: @franchisemaster }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @franchisemaster.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
 
   def update

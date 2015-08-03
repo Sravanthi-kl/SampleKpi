@@ -25,7 +25,8 @@ ActiveRecord::Schema.define(:version => 20150721170919) do
     t.datetime "updated_at",                                   :null => false
   end
 
-  create_table "businesskpis", :force => true do |t|
+  create_table "businesskpis", :id => false, :force => true do |t|
+    t.integer  "id",           :precision => 38, :scale => 0, :null => false
     t.integer  "kpi_id",       :precision => 38, :scale => 0
     t.integer  "jbbranch_id",  :precision => 38, :scale => 0
     t.datetime "created_at",                                  :null => false
@@ -35,9 +36,6 @@ ActiveRecord::Schema.define(:version => 20150721170919) do
     t.string   "kpifrequency"
     t.string   "kpicategory"
   end
-
-  add_index "businesskpis", ["jbbranch_id"], :name => "i_businesskpis_jbbranch_id"
-  add_index "businesskpis", ["kpi_id"], :name => "index_businesskpis_on_kpi_id"
 
   create_table "details", :force => true do |t|
     t.datetime "day"

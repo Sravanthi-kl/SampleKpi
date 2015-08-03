@@ -12,17 +12,17 @@
         <% if !@kpi.blank? %>
 		    <% @kpi.each do |kpi| %>	  	
 	  		 	<tr>	
-	  	  			<td><%= check_box_tag "kpi_ids[]", kpi.id,@mapped_kpi_ids.include?(kpi.id)%></td>
+	  	  			<td><%= check_box_tag "kpi_ids[]",kpi.id,@mapped_kpi_ids.include?(kpi.id)%></td>
 	  	  			<td><%= kpi.kpiname %></td>             
 	      			<td><%= kpi.kpifrequency %></td>
-	      			<td><%= kpi.kpicategory %></td> 
-	    		</tr>	    
+	      			<td><%= kpi.kpicategory %></td> 	      			      			
+    			</tr>	    
 	    	<% end %>    
 		<% end %>
 	</table> 
 
 <div class="actions">
-    <%= submit_tag %>
+    <%= submit_tag %>,
 </div>
 
 <% end %>

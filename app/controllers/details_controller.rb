@@ -11,7 +11,7 @@ class DetailsController < ApplicationController
   def new
     @jb_branch = JbBranch.find(params[:branch_id])   
     @kpi = Kpi.find(params[:kpi_id])
-    @details = Detail.where("kpi_id = ? and jbbranch_id = ?",@kpi.id,@jb_branch.id)
+    @details = Detail.where("kpi_id = ? and jbbranch_id = ? ",@kpi.id,@jb_branch.id)    
     @detail = Detail.new   
    
       respond_to do |format|
@@ -79,12 +79,30 @@ class DetailsController < ApplicationController
     render :text => percet
   end
 
-
-  def addlinkkpi
-    @detail=Detail.new
+  def addlinkkpi  
     @businesskpi = Businesskpi.new
-    @jb_branch = JbBranch.find(params[:jbbranch_id]) 
-    @mapped_kpi_ids = Businesskpi.where(:jbbranch_id => @jb_branch.id)
+    @jb_branch = JbBranch.find(params[:jbbranch_id])     
+    @mapped_kpi_ids = Businesskpi.where(:jbbranch_id => @jb_branch.id)  
+  end
 
+  def monthly
+    @businesskpi = Businesskpi.new
+    @jb_branch = JbBranch.find(params[:jbbranch_id])     
+    @mapped_kpi_ids = Businesskpi.where(:jbbranch_id => @jb_branch.id)  
   end   
-end
+
+
+  def feed
+    @businesskpi = Businesskpi.new
+    @jb_branch = JbBranch.find(params[:jbbranch_id])    
+    @mapped_kpi_ids = Businesskpi.where(:jbbranch_id => @jb_branch.id)  
+
+  end  
+
+  def showgraph
+    @jb_branch = JbBranch.find(params[:branch_id])   
+    @kpi = Kpi.find(params[:kpi_id])
+    @details = Detail.where("kpi_id = ? and jbbranch_id = ? ",@kpi.id,@jb_branch.id)    
+    @detail = Detail.new   
+   end 
+end 

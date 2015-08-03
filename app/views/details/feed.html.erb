@@ -1,0 +1,24 @@
+<h4>Branch Kpi Details</h1>
+
+<table class="table">
+  <thead> 
+        <th>Branch Name</th>
+        <th>Kpi Category</th>
+        <th>KPi Name</th>
+        <th>KPI Frequency</th>        
+  </thead>  
+
+<% @mapped_kpi_ids.each do |mapped_kpi_id| %>
+  <tr>   
+    <% if mapped_kpi_id.kpicategory=="CollectionToday" %> 
+      <td><%= mapped_kpi_id.branchname%></td>
+      <td><%= mapped_kpi_id.kpicategory%></td>
+      <td><%= mapped_kpi_id.kpiname%></td>        
+      <td><%= mapped_kpi_id.kpi_id%></td>       
+      <td><%= link_to 'Show Graph',showgraph_details_path(:kpi_id => mapped_kpi_id.kpi_id,:branch_id => @jb_branch.id),:class => [:btn, :"btn-success"]%>
+       
+      <% end %>
+  </tr>
+<% end %>
+	</tr>
+</table>

@@ -117,6 +117,16 @@ $('#detail_actual').on('blur',function(){
 	       });    
 	   });
 
+	 function clickme(obj,data1,data2){
+     $.ajax({url: 'urlhere',
+     data: {id:data1,id2:data2},
+     dataType: "script",
+     method: 'get'
+    });      
+   }
+
+
+
 	   
 });
 
