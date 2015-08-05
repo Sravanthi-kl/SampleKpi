@@ -11,15 +11,19 @@
 
 <% @mapped_kpi_ids.each do |mapped_kpi_id| %>
 	<tr>	 
-		<% if mapped_kpi_id.kpifrequency=="MONTHLY" %> 
-	    <td><%= mapped_kpi_id.branchname%></td>
+		<td><%= mapped_kpi_id.branchname%></td>
 	    <td><%= mapped_kpi_id.kpicategory%></td>
 	    <td><%= mapped_kpi_id.kpiname%></td>	  	  
 	    <td><%= mapped_kpi_id.kpifrequency%></td>	       
-	    <td><%= link_to 'Add Data',new_detail_path(:kpi_id => mapped_kpi_id.kpi_id,:branch_id => @jb_branch.id),:class=> [:btn, :"btn-success"]%></td>    
-	    <% end %>
+	    <td><%= link_to 'Add Data',new_detail_path(:kpi_id => mapped_kpi_id.kpi_id,:branch_id => @jb_branch.id),:class=> [:btn, :"btn-success"]%></td>   	    
 	</tr>
 <% end %> 
 
+
+
+
+
+
+  
 
 		

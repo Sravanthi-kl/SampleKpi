@@ -8,7 +8,7 @@
         var data = google.visualization.arrayToDataTable([
           ['Day', 'Actual', 'Target'],
            <% @details.each do |bic| %>
-          ['<%= bic.created_at.to_date.to_s %>',<%= bic.actual rescue 0 %>,<%= bic.target rescue 0%>],
+          ['<%= bic.day %>',<%= bic.actual rescue 0 %>,<%= bic.target rescue 0%>],
           <% end %>
         ]);
 

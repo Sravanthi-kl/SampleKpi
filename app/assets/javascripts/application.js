@@ -101,7 +101,7 @@ $('#detail_actual').on('blur',function(){
 	       changeYear: true,
 	       showButtonPanel: true,
 	
-	       onClose: function(dateText, inst) {  
+	       onClose: function(dateText, inst) { 
 	           
 	           var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val(); 
 	           $(this).val($.datepicker.formatDate('yy', new Date(year, 1, 1)));
@@ -115,18 +115,6 @@ $('#detail_actual').on('blur',function(){
 	           at: "center bottom",
 	           of: $(this)
 	       });    
-	   });
-
-	 function clickme(obj,data1,data2){
-     $.ajax({url: 'urlhere',
-     data: {id:data1,id2:data2},
-     dataType: "script",
-     method: 'get'
-    });      
-   }
-
-
-
-	   
+	   });	  
 });
 

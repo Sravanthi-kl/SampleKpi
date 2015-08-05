@@ -1,25 +1,14 @@
 <h4>Branch Kpi Details</h1>
 
-<%= render 'frequencytab' %>
-
-<%= link_to 'Monthly Kpis for the Branch',monthly_details_path(:jbbranch_id => @jb_branch.id),:class=> [:btn, :"btn-success"]%>
-
-<table class="table">
-  <thead> 
-        <th>Branch Name</th>
-        <th>Kpi Category</th>
-        <th>KPi Name</th>
-        <th>KPI Frequency</th>        
-  </thead>  
-
-<% @mapped_kpi_ids.each do |mapped_kpi_id| %>
-	<tr>	 
-		<% if mapped_kpi_id.kpifrequency=="DAILY" %> 
-	    <td><%= mapped_kpi_id.branchname%></td>
-	    <td><%= mapped_kpi_id.kpicategory%></td>
-	    <td><%= mapped_kpi_id.kpiname%></td>	  	  
-	    <td><%= mapped_kpi_id.kpifrequency%></td>	       
-	    <td><%= link_to 'Add Data',new_detail_path(:kpi_id => mapped_kpi_id.kpi_id,:branch_id => @jb_branch.id),:class=> [:btn, :"btn-success"]%></td>    
-	    <% end %>
-	</tr>
-<% end %>
+<ul class="nav nav-tabs"  id="tabs">
+  <li class="active">
+  	<%= link_to 'Daily',"/details/addlinkkpi?jbbranch_id=#{@jb_branch.id}&frequency=DAILY",:remote => true%>
+  </li>
+  <li>
+  	<%= link_to 'Monthly',"/details/addlinkkpi?jbbranch_id=#{@jb_branch.id}&frequency=MONTHLY",:remote => true%>
+  </li>
+</ul>  
+<div class="tab-content">
+  <div class="tab-pane active" id="kpi-freq-content">
+   <%= render :partial => 'frequency' ,:locals => {:jb_branch_id => @jb_branch.id}%>
+  </div>

@@ -5,11 +5,11 @@
       function drawVisualization() {
         // Some raw data (not necessarily accurate)
         console.log(<% @details%>);
+        <% details = Detail.where("kpi_id = ? and jbbranch_id = ? ",kpi_id,jb_branch_id) %>
         var data = google.visualization.arrayToDataTable([
           ['Day', 'Actual', 'Target'],
-           <% @details.each do |bic| %>
-         ['<%= bic.day %>',<%= bic.actual rescue 0 %>,<%= bic.target rescue 0%>],
-         
+           <% details.each do |bic| %>         
+         ['<%= bic.day %>',<%= bic.actual rescue 0 %>,<%= bic.target rescue 0%>],                  
           <% end %>
         ]);
 
@@ -18,11 +18,11 @@
           vAxis: {title: "Actual"},
           hAxis: {title: "Date"},
           seriesType: "bars",
-            series: {1:{type: "line"}}
+          series: {1:{type: "line"}}
         };
 
-        var chart = new google.visualization.ComboChart(document.getElementById('rentals_trend_div'));
+        var chart = new google.visualization.ComboChart(document.getElementById("rentals_trend_div_<%=kpi_id%>"));
         chart.draw(data, options);
       }
     </script> 
-<div id="rentals_trend_div" style="width: 400px; height: 300px;"></div>
+<div id="rentals_trend_div_<%= kpi_id%>" style="width: 400px; height: 300px;"></div>
