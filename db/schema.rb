@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20150721170919) do
   end
 
   create_table "details", :force => true do |t|
-    t.datetime "day"
+    t.string   "day"
     t.integer  "actual",            :precision => 38, :scale => 0
     t.integer  "target",            :precision => 38, :scale => 0
     t.integer  "target_percentage", :precision => 38, :scale => 0
@@ -46,9 +46,6 @@ ActiveRecord::Schema.define(:version => 20150721170919) do
     t.integer  "kpi_id",            :precision => 38, :scale => 0
     t.datetime "created_at",                                       :null => false
     t.datetime "updated_at",                                       :null => false
-    t.integer  "businesskpi_id",    :precision => 38, :scale => 0
-    t.integer  "jbbranch_id",       :precision => 38, :scale => 0
-    t.string   "branchname"
   end
 
   add_index "details", ["kpi_id"], :name => "index_details_on_kpi_id"

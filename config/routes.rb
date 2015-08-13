@@ -23,9 +23,7 @@ get 'jb_branches/home'
 resources :jb_branches do
     collection do
       post 'linkkpi'
-      get 'newlinkkpi'  
-
-       
+      get 'newlinkkpi'        
     end
 end
 

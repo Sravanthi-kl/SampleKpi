@@ -4,5 +4,6 @@ class Renametoday < ActiveRecord::Migration
   end
 
   def down
+  	
   end
 end

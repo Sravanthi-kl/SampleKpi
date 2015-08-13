@@ -16,13 +16,13 @@ def new
     end
 end
 
- def show
+def show
   @jb_branch = JbBranch.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @jb_branch }
     end
- end
+end
 
 def create
   @jb_branch = JbBranch.new(params[:jb_branch])

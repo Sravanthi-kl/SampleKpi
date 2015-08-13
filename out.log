@@ -394,3 +394,12 @@ Served asset /registerreports.js - 304 Not Modified (2ms)
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-07-18 12:57:21 +0530
 Served asset /application.js - 304 Not Modified (128ms)
 Exiting
+=> Booting Thin
+=> Rails 3.2.16 application starting in development on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+Thin web server (v1.6.3 codename Protein Powder)
+Maximum connections set to 1024
+Listening on 0.0.0.0:3000, CTRL+C to stop
+Stopping ...
+Exiting

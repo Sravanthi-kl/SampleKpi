@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe JbBranch, :type => :model do
+    it "has a valid factory" do 
+    	Factory.create(:JBBranch).should be_valid 
 
-  pending "add some examples to (or delete) #{__FILE__}"
+     end  	
+    it "is invalid without a branchname" 
+  
+  
 end

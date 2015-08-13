@@ -8,10 +8,6 @@ gem 'execjs','2.2.1'
 gem 'ruby-oci8','2.1.7'
 gem 'thin'
 
-
-
-
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'

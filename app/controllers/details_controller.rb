@@ -13,11 +13,11 @@ class DetailsController < ApplicationController
     @kpi = Kpi.find(params[:kpi_id])
     @details = Detail.where("kpi_id = ? and jbbranch_id = ? ",@kpi.id,@jb_branch.id)    
     @detail = Detail.new   
+    
    
       respond_to do |format|
         format.html # new.html.erb
         format.json { render :text => @detail.to_json }
-
       end
   end
  
@@ -91,6 +91,7 @@ class DetailsController < ApplicationController
 
   def feed
     @jb_branch = JbBranch.find(params[:jbbranch_id])    
-    @mapped_kpi_ids = Businesskpi.where(:jbbranch_id => @jb_branch.id)      
+    @mapped_kpi_ids = Businesskpi.where(:jbbranch_id => @jb_branch.id)
+    p @mapped_kpi_ids      
   end  
 end 
